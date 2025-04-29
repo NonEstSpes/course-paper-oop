@@ -1,0 +1,7 @@
+<input #input (keydown.enter)="todoService.create(input.value)"/>
+@for (todo of todoService.filteredTodoList(); track todo.id) {
+  <app-item [todo]="todo"/>
+}
+@if (todoService.filteredTodoList().length > 0) {
+  <app-filter/>
+}

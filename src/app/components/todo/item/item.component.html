@@ -1,0 +1,5 @@
+<div class="item">
+  <input type="checkbox" (click)="todoService.update(todo().title, !todo().completed, todo().id)"/>
+  <p>{{todo().title}}</p>
+  <button (click)="todoService.delete(todo().id)">Удалить</button>
+</div>
