@@ -24,6 +24,7 @@ export class TodoService {
   }
 
   public create(title: string) {
+    if (title.length > 0) return
     this.todoList.update(value => [
       ...value,
       {
