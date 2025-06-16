@@ -9,7 +9,6 @@ import {InputComponent} from './input/input.component';
 @Component({
   selector: 'app-todo',
   imports: [
-    ItemComponent,
     FilterComponent,
     ReactiveFormsModule,
     ListComponent,
