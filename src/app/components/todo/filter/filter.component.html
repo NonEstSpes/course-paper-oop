@@ -1,15 +1,15 @@
 <div class="filter">
-  <p>{{count(false)}}</p>
-  <div>
-    <input type="radio" name="filter" id="all" (click)="todoService.filterList.set(Filter.All)" checked/>
+  <p>{{count(false) + ' item left'}}</p>
+  <div (click)="todoService.filterList.set(Filter.All)" [class.selected]="all.checked">
+    <input type="radio" name="filter" id="all" checked #all/>
     <label for="all">All</label>
   </div>
-  <div>
-    <input type="radio" name="filter" id="active" (click)="todoService.filterList.set(Filter.Active)"/>
+  <div (click)="todoService.filterList.set(Filter.Active)" [class.selected]="active.checked">
+    <input type="radio" name="filter" id="active" #active/>
     <label for="active">Active</label>
   </div>
-  <div>
-    <input type="radio" name="filter" id="completed" (click)="todoService.filterList.set(Filter.Completed)"/>
+  <div (click)="todoService.filterList.set(Filter.Completed)" [class.selected]="completed.checked">
+    <input type="radio" name="filter" id="completed" #completed/>
     <label for="completed">Completed</label>
   </div>
   @if (count(true) > 0) {

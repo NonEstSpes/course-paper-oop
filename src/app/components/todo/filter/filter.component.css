@@ -2,4 +2,45 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 30px;
+  position: relative;
+  z-index: 10;
+}
+
+p {
+  float: left;
+  text-align: left;
+  font-size: 15px;
+  margin: 0;
+}
+
+input, select {
+  outline: none;
+  opacity: 0;
+  position: absolute;
+}
+
+.selected {
+  border-radius: 3px;
+  border: 1px solid #ce4646;
+}
+
+div, p {
+  color: inherit;
+  margin: 3px;
+  padding: 3px 7px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+button {
+  margin-left: auto;
+  background-color: transparent;
+  border: 1px solid #294a1c;
+  border-radius: 3px;
+  outline: none;
 }

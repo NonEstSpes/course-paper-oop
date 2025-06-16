@@ -1,10 +1,11 @@
 <div>
-  @let isHaveTodo = todoService.read().length > 0;
   <p>Todos</p>
   <app-input/>
   <app-list/>
-  @if (isHaveTodo) {
-    <app-filter/>
+  @if (todoService.read().length > 0) {
+    <div class="footer">
+      <app-filter/>
+    </div>
   }
 </div>
 
