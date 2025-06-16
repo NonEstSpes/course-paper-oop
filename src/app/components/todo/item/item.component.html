@@ -1,9 +1,13 @@
-<div class="item">
+<div class="item" (mouseover)="viewDelete.set(true)" (mouseleave)="viewDelete.set(false)">
   <input
     type="checkbox"
     (click)="todoService.update(todo().title, !todo().completed, todo().id)"
     [checked]="todo().completed"
   />
   <p [class.checked]="todo().completed">{{todo().title}}</p>
-  <button (click)="todoService.delete(todo().id)"></button>
+  <button
+    (click)="todoService.delete(todo().id)"
+    class="delete"
+    [style.opacity]="viewDelete() ? 1 : 0"
+  ></button>
 </div>
