@@ -1,7 +1,21 @@
-<input #input (keydown.enter)="todoService.create(input.value)"/>
-@for (todo of todoService.filteredTodoList(); track todo.id) {
-  <app-item [todo]="todo"/>
-}
-@if (todoService.filteredTodoList().length > 0) {
-  <app-filter/>
-}
+<div>
+  @let isHaveTodo = todoService.read().length > 0;
+  <p>Todos</p>
+  <div>
+    @if (isHaveTodo) {
+      <input #switched type="checkbox" (click)="todoService.switchStatusAllTasks(switched.checked)">
+    }
+    <input
+      [formControl]="formInput"
+      (keydown.enter)="createNewTask()"
+      placeholder="What needs to be done?"
+    />
+  </div>
+  @for (todo of todoService.filteredTodoList(); track todo.id) {
+    <app-item [todo]="todo"/>
+  }
+  @if (isHaveTodo) {
+    <app-filter/>
+  }
+</div>
+

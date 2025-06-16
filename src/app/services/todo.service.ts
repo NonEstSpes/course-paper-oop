@@ -1,4 +1,4 @@
-import {computed, Injectable, Signal, signal, WritableSignal} from '@angular/core';
+import {computed, effect, Injectable, Signal, signal, WritableSignal} from '@angular/core';
 import {Filter, Todo} from '../types/todo';
 import * as uuid from 'uuid';
 
@@ -24,7 +24,7 @@ export class TodoService {
   }
 
   public create(title: string) {
-    if (title.length > 0) return
+    if (title.length <= 0) return
     this.todoList.update(value => [
       ...value,
       {
@@ -45,11 +45,17 @@ export class TodoService {
     }))
   }
 
-  public delete(id: string) {
-    this.todoList.update(value => value.filter(val => val.id !== id))
+  public delete(id: string): void {
+    this.todoList.update((value: Todo[]): Todo[] => value.filter(val => val.id !== id))
   }
 
-  public clearCompleted() {
-    this.todoList.update(value => value.filter(val => !val.completed))
+  public clearCompleted(): void {
+    this.todoList.update((value: Todo[]): Todo[] => value.filter(val => !val.completed))
+  }
+
+  public switchStatusAllTasks(value: boolean): void {
+    this.todoList.update(val => val.map((todo: Todo): Todo => {
+      return {...todo, completed: value}
+    }))
   }
 }

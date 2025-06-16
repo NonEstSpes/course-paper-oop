@@ -1,4 +1,4 @@
-import {Component, inject, input, InputSignal} from '@angular/core';
+import {Component, effect, inject, input, InputSignal} from '@angular/core';
 import {Todo} from '../../../types/todo';
 import {TodoService} from '../../../services/todo.service';
 
