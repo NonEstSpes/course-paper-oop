@@ -1,0 +1,20 @@
+<div class="input-container">
+  @let isHaveTodo = todoService.read().length > 0;
+  @if (isHaveTodo) {
+    <div>
+      <input
+        #switched
+        type="checkbox"
+        (click)="todoService.switchStatusAllTasks(switched.checked)"
+        class="toggle-all"
+        id="toggle-all" />
+      <label for="toggle-all" class="toggle-all-label"></label>
+    </div>
+  }
+  <input
+    [formControl]="formInput"
+    (keydown.enter)="createNewTask()"
+    placeholder="What needs to be done?"
+    class="new-todo ng-valid ng-touched ng-dirty"
+  />
+</div>

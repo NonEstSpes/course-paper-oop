@@ -1,0 +1,5 @@
+<div class="">
+  @for (todo of todoService.filteredTodoList(); track todo.id) {
+    <app-item [todo]="todo"/>
+  }
+</div>

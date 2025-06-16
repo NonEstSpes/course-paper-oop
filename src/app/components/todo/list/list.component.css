@@ -1,0 +1,11 @@
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+app-item {
+  display: block;
+  border-bottom: 1px solid #ededed;
+  font-size: 24px;
+}

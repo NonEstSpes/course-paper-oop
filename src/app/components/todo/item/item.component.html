@@ -4,6 +4,6 @@
     (click)="todoService.update(todo().title, !todo().completed, todo().id)"
     [checked]="todo().completed"
   />
-  <p>{{todo().title}}</p>
-  <button (click)="todoService.delete(todo().id)">Удалить</button>
+  <p [class.checked]="todo().completed">{{todo().title}}</p>
+  <button (click)="todoService.delete(todo().id)"></button>
 </div>
